@@ -1,23 +1,27 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { Route } from 'react-router-dom'
+
+import Homepage from './Components/Homepage/Home';
+import Navbar from './Components/Navbar/Navbar';
+// import CarouselsImg from './Components/Homepage/CarouselsImg';
+// import CarouselsMultipleCards from './Components/Homepage/CarouselsMultipleCards'
+
+const Home = () => <Homepage />
+// const News = () => <h1>New</h1>
+// const Best_Sell = () => <h1>Best Selling</h1>
+// const Sales = () => <h1>Sales</h1>
+// const Recommend = () => <h1>Recommend Products</h1>
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar/>
+      <Route exact path="/" component={Home} />
+      {/* <Route path="/news" component={News} />
+      <Route path="/best_sell" component={Best_Sell} />
+      <Route path="/sales" component={Sales} />
+      <Route path="/recommend" component={Recommend} /> */}
     </div>
   );
 }

@@ -1,0 +1,10 @@
+.ImgItems {
+    width: 82vw;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.Img {
+    height: 45vh;
+    width: 82vw;
+}
