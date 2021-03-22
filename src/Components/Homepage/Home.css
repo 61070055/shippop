@@ -3,8 +3,30 @@
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-top: 10vh;
 }
 .Img {
     height: 45vh;
     width: 82vw;
+}
+
+.sellbox {
+    display: block;
+    margin-left: 8.5vw;
+    margin-right: 8.5vw;
+    margin-top: 2vh;
+}
+
+.Header {
+    font-weight: bolder;
+}
+
+.normal_price {
+    text-decoration: line-through;
+    color: #7c7c7c;
+}
+
+.Sale_price {
+    font-weight: bolder;
+    font-size: 20px;
 }

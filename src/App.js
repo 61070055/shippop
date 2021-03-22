@@ -4,8 +4,7 @@ import { Route } from 'react-router-dom'
 
 import Homepage from './Components/Homepage/Home';
 import Navbar from './Components/Navbar/Navbar';
-// import CarouselsImg from './Components/Homepage/CarouselsImg';
-// import CarouselsMultipleCards from './Components/Homepage/CarouselsMultipleCards'
+
 
 const Home = () => <Homepage />
 // const News = () => <h1>New</h1>
