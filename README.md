@@ -1,3 +1,32 @@
+# Homework
+
+## ข้อ 01 Basic Javascript
+1.1) เขียน function แสดงค่าทาง console โดย function รับ parameter 2 ตัว
+``` 
+var firstName = prompt("Firstname : ")
+var lastName = prompt("Lastname :")
+
+if (firstName == "Shippop"){
+    console.log("Best Online Shipping Platform")
+} else {
+    console.log("Hello Shippop, My name is " + firstName + " " + lastName )
+}
+```
+2.2) First Class Function คืออะไร กรุณาแสดงตัวอย่างพร้อมคำอธิบาย
+คือ Function ที่สามารถทำให้เป็นตัวแปรได ้เช่น
+```
+var shippop = function(a + b){
+    return a + b;
+}
+```
+
+## ข้อ 02 Database Design 
+กำลังทำอยู่ . . . .
+
+## ข้อ 03 ทำโจทย์ตามตำแหน่งที่ตนเองสมัคร
+กำลังทำอยู่. . . .
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
