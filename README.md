@@ -13,6 +13,7 @@ if (firstName == "Shippop"){
 }
 ```
 2.2) First Class Function คืออะไร กรุณาแสดงตัวอย่างพร้อมคำอธิบาย
+
 คือ Function ที่สามารถทำให้เป็นตัวแปรได ้เช่น
 ```
 var shippop = function(a + b){
