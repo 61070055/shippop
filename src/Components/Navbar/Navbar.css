@@ -1,35 +1,43 @@
 .NavbarItems {
-    background: #ffffff;
-    height: 10vh;
-    display: flex;
-    position: fixed;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    box-shadow: 1px 2px 12px #e0e0e0;
-    z-index: 1;
+  background: #ffffff;
+  height: 10vh;
+  display: flex;
+  position: fixed;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  box-shadow: 1px 2px 12px #e0e0e0;
+  z-index: 999;
 }
 
 .Navbar-Home {
-    color: #000000;
-    justify-self: start;
-    margin-left: 8vw;
-    cursor: pointer;
-    font-size: 35px;
-    font-weight: bolder;
+  color: #000000;
+  justify-self: start;
+  margin-left: 8vw;
+  cursor: pointer;
+  font-size: 35px;
+  font-weight: bolder;
 }
-.Navbar-url{
-    display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-gap: 10px;
-    list-style: none;
-    text-align: center;
-    width: 30vw;
-    justify-content: start;
+.Navbar-url {
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  grid-gap: 10px;
+  list-style: none;
+  text-align: center;
+  margin-top: 5px;
+  width: 75.5vw;
+  justify-content: start;
 }
 
-.nav-links, .Home, .nav-links:hover, .Home:hover {
-    color: #000000;
-    text-decoration: none;
-    padding: 10px;
+.nav-links,
+.Home,
+.nav-links:hover,
+.Home:hover {
+  color: #000000;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.Search__box {
+  text-align: right;
 }

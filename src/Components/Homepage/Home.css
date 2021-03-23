@@ -1,90 +1,92 @@
 .ImgItems {
-    width: 82vw;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 10vh;
+  width: 82vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10vh;
 }
 .Img {
-    height: 45vh;
-    width: 82vw;
+  height: 45vh;
+  width: 82vw;
 }
 
 .sellbox {
-    display: flex;
-    flex-direction: column;
-    margin-left: 8.5vw;
-    margin-right: 8.5vw;
-    margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+  margin-left: 8.5vw;
+  margin-right: 8.5vw;
+  margin-top: 2vh;
 }
 
 .HeadBox {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .Header {
-    font-weight: bolder;
-    text-align: left;
-    flex: 6;
+  font-weight: bolder;
+  text-align: left;
+  flex: 6;
 }
 
 .SubHeader {
-    text-decoration: underline;
-    text-align: right;
-    font-size: 15px;
-    list-style: none;
-    color: #000000;
-    flex: 1;
+  text-decoration: underline;
+  text-align: right;
+  font-size: 15px;
+  list-style: none;
+  color: #000000;
+  flex: 1;
 }
 
 .SubHeader:hover {
-    text-decoration: none;
-    color: #000000;
+  text-decoration: none;
+  color: #000000;
 }
 
 .price {
-    font-weight: bolder;
-    font-size: 20px;
+  font-weight: bolder;
+  font-size: 20px;
+  margin-top: 5.5vh;
 }
 
 .normal_price {
-    text-decoration: line-through;
-    color: #7c7c7c;
+  text-decoration: line-through;
+  color: #7c7c7c;
 }
 
 .TitleCard {
-    font-size: 15px;
+  font-size: 15px;
 }
 
 .Sale_price {
-    font-weight: bolder;
-    font-size: 20px;
+  font-weight: bolder;
+  font-size: 20px;
 }
 
 .MuiBox-root {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .Ratebox {
-    flex: 1;
+  flex: 1;
 }
 
 .reviews {
-    font-size: 12px;
-    align-items: center;
-    color: #949494;
+  font-size: 12px;
+  align-items: center;
+  color: #949494;
 }
 
 /* .buybutton {
-    text-align: center;
-    margin-bottom: 10px;
-    display: none;
+  text-align: center;
+  margin-bottom: 10px;
+  display: none;
 } */
 
-.CardItems:hover {
+/* .buybutton:hover {
     cursor: pointer;
     border-width: 2px;
-}
+    z-index: 2;
+} */
