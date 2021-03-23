@@ -9,7 +9,6 @@ import { Rating } from "@material-ui/lab";
 class Product extends Component {
   constructor(props) {
     super(props);
-    this.handleMouseHover = this.handleMouseHover.bind(this);
     this.state = {
       products: props.data,
       isonsale: false,
@@ -52,7 +51,12 @@ class Product extends Component {
                 className="buybutton"
                 style={{ textAlign: "center", marginBottom: "5px" }}
               >
-                <Button variant="outlined" color="primary" size="small">
+                <Button
+                  href={this.state.products.link}
+                  variant="outlined"
+                  color="primary"
+                  size="small"
+                >
                   Add To Cart
                 </Button>
               </div>

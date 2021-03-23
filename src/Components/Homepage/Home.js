@@ -37,9 +37,10 @@ function Home() {
       price: "THB259.00",
       saleprice: "THB0.00",
       imagebook: book,
-      link: "#",
+      link: "/book01",
       reviews: 1,
       rating: 4,
+      discription: "",
     },
     {
       id: 2,
@@ -50,6 +51,7 @@ function Home() {
       link: "#",
       reviews: 1,
       rating: 4,
+      discription: "",
     },
     {
       id: 3,
@@ -60,6 +62,7 @@ function Home() {
       link: "#",
       reviews: 1,
       rating: 4,
+      discription: "",
     },
     {
       id: 4,
@@ -70,6 +73,7 @@ function Home() {
       link: "#",
       reviews: 1,
       rating: 4,
+      discription: "",
     },
     {
       id: 5,
@@ -80,6 +84,7 @@ function Home() {
       link: "#",
       reviews: 1,
       rating: 4,
+      discription: "",
     },
     {
       id: 6,
@@ -90,6 +95,7 @@ function Home() {
       link: "#",
       reviews: 1,
       rating: 4,
+      discription: "",
     },
   ]);
 
