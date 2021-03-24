@@ -6,11 +6,12 @@ import Homepage from "./Components/Homepage/Home";
 import Navbar from "./Components/Navbar/Navbar";
 import DescriptionOfBook from "./Components/Description/Descriptionofbook";
 import CartEdit from "./Components/Cart/CartEdit";
+import CheckoutPage from "./Components/Cart/Checkout";
 
 const Home = () => <Homepage />;
 const Book = () => <DescriptionOfBook />;
 const Cart = () => <CartEdit />;
-// const Sales = () => <h1>Sales</h1>
+const Checkout = () => <CheckoutPage />;
 // const Recommend = () => <h1>Recommend Products</h1>
 
 function App() {
@@ -20,8 +21,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path="/book" component={Book} />
       <Route path="/cart" component={Cart} />
-      {/* <Route path="/sales" component={Sales} />
-      <Route path="/recommend" component={Recommend} /> */}
+      <Route path="/checkout" component={Checkout} />
     </div>
   );
 }

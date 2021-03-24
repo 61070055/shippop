@@ -234,6 +234,7 @@ function Navbar() {
                     paddingRight: 50,
                     marginBottom: 10,
                   }}
+                  href="/checkout"
                 >
                   ไปชำระเงิน
                 </Button>

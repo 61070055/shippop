@@ -188,6 +188,7 @@ function CartEdit() {
                 marginBottom: 10,
               }}
               color="primary"
+              href="/checkout"
             >
               ไปชำระเงิน
             </Button>
