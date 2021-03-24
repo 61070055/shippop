@@ -25,6 +25,7 @@
   width: 2vw;
   height: 5vh;
   margin-left: 1vw;
+  cursor: pointer;
 }
 
 .imgBox {
@@ -48,4 +49,42 @@
   padding-top: 5vh;
   padding-left: 10vw;
   padding-right: 1vw;
+}
+
+.desTextBox {
+  padding-top: 3vh;
+}
+
+.otherBox {
+  display: flex;
+  flex-direction: column;
+  padding-top: 2vh;
+  padding-left: 10vw;
+  padding-right: 10vw;
+}
+
+.HeadBox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.Header {
+  font-weight: bolder;
+  text-align: left;
+  flex: 6;
+}
+
+.SubHeader {
+  text-decoration: underline;
+  text-align: right;
+  font-size: 15px;
+  list-style: none;
+  color: #000000;
+  flex: 1;
+}
+
+.SubHeader:hover {
+  text-decoration: none;
+  color: #000000;
 }

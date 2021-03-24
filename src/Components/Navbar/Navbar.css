@@ -19,14 +19,16 @@
   font-weight: bolder;
 }
 .Navbar-url {
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  grid-gap: 10px;
+  /* display: grid; */
+  /* grid-template-columns: repeat(5, auto); */
+  /* grid-gap: 10px; */
+  display: flex;
+  flex-direction: row;
   list-style: none;
   text-align: center;
-  margin-top: 5px;
-  width: 75.5vw;
-  justify-content: start;
+  margin-top: 10px;
+  width: 77.5vw;
+  justify-content: flex-start;
 }
 
 .nav-links,
@@ -38,6 +40,21 @@
   padding: 10px;
 }
 
+.Menu__box {
+  display: flex;
+  flex: 2;
+  flex-direction: row;
+}
+
 .Search__box {
   text-align: right;
+  flex: 1;
+  margin-top: 5px;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 35px;
+  width: 30px;
+  margin-left: 1.5vw;
 }
