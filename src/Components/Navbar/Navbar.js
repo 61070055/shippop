@@ -38,6 +38,7 @@ function Navbar() {
       width: 350,
       textAlign: "center",
       backgroundColor: theme.palette.background.paper,
+      borderColor: "#e0e0e0",
     },
   }));
 
@@ -142,6 +143,7 @@ function Navbar() {
                     paddingRight: 50,
                     marginBottom: 10,
                   }}
+                  href="/cart"
                 >
                   ดูหรือแก้ไขสินค้าของฉัน
                 </Button>
@@ -151,6 +153,7 @@ function Navbar() {
                     flexDirection: "row",
                     borderTop: "1.5px solid",
                     borderBottom: "1.5px solid",
+                    borderColor: "#e0e0e0",
                     paddingTop: 15,
                     paddingBottom: 15,
                   }}

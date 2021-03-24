@@ -11,12 +11,13 @@ import { Link } from "react-router-dom";
 import CarouselMultiple from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-import book from "../../assets/book01.png";
+import Product from "../Homepage/Product";
 import email from "../../assets/email.png";
-import twitter from "../../assets/twitter.png";
+import tumblr from "../../assets/tumblr.png";
 import facebook from "../../assets/facebook.png";
 import google from "../../assets/google-plus.png";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import database from "../../data/data-dummy.json";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -61,26 +62,35 @@ const responsive = {
 function DescriptionOfBook() {
   const [amount, setAmount] = useState({ p_amount: "" });
   const classes = useStyles();
+  const [data, setdata] = useState(database.BOOKS);
+  const [bookId, setBookId] = useState(
+    window.location.pathname.split("/").pop()
+  );
+  const [book, setBook] = useState(
+    database.BOOKS.filter((x) => x.id === parseInt(bookId))[0]
+  );
 
   const handleChange = (event) => {
     const select = event.target.value;
     setAmount({ p_amount: select });
   };
 
+  // console.log(database);
+
   return (
     <div style={{ width: "100vw", paddingTop: "10.2vh" }}>
       <div className="mainBox">
-        <img src={book} className="main__img" alt="book img" />
+        <img src={book.imagebook} className="main__img" alt="book img" />
         <div className="subBox">
           <h1 style={{ fontWeight: "bolder", marginBottom: "3vh" }}>
-            ตัวประกอบสะท้านยุทธภพ
+            {book.title}
           </h1>
-          <p className="des__text">ผู้เขียน : จอมยุทธ์สะดุดกระบี่</p>
-          <p className="des__text">สำนักพิมพ์ : เป็นหนึ่งสำนักพิมพ์</p>
-          <p className="des__text">หมวดหมู่ : นิยายรักจีนโบราณ</p>
-          <p className="des__text">ประเภทของสินค้า : Books</p>
+          <p className="des__text">ผู้เขียน : {book.writer}</p>
+          <p className="des__text">สำนักพิมพ์ : {book.publisher}</p>
+          <p className="des__text">หมวดหมู่ : {book.category}</p>
+          <p className="des__text">ประเภทของสินค้า : {book.type}</p>
           <p className="des__text" style={{ paddingBottom: "30px" }}>
-            บาร์โค้ด : 7864513521847
+            บาร์โค้ด : {book.barcode}
           </p>
           <div
             style={{
@@ -96,7 +106,7 @@ function DescriptionOfBook() {
                 fontWeight: "bold",
               }}
             >
-              THB129.00
+              {book.saleprice}
             </h3>
             <h4
               style={{
@@ -106,7 +116,7 @@ function DescriptionOfBook() {
                 color: "#7c7c7c",
               }}
             >
-              THB259.00
+              {book.price}
             </h4>
           </div>
           <div
@@ -172,14 +182,18 @@ function DescriptionOfBook() {
           >
             <h5>แชร์ :</h5>
             <img className="icon" src={email} alt="email icon" />
-            <img className="icon" src={twitter} alt="twitter icon" />
+            <img className="icon" src={tumblr} alt="twitter icon" />
             <img className="icon" src={facebook} alt="facebook icon" />
             <img className="icon" src={google} alt="google plus icon" />
           </div>
         </div>
       </div>
       <div className="imgBox">
-        <img src={book} alt="book sub img" style={{ cursor: "pointer" }} />
+        <img
+          src={book.imagebook}
+          alt="book sub img"
+          style={{ cursor: "pointer" }}
+        />
       </div>
       <div className="desSelectBox">
         <p style={{ fontWeight: "bold", cursor: "pointer" }}>เกี่ยวกับสินค้า</p>
@@ -200,25 +214,10 @@ function DescriptionOfBook() {
           >
             รายละเอียด :
           </h5>
-          <h5 style={{ paddingLeft: "1vw", fontSize: "18px" }}>
-            ตัวประกอบสะท้านยุทธภพ
-          </h5>
+          <h5 style={{ paddingLeft: "1vw", fontSize: "18px" }}>{book.title}</h5>
         </div>
         <div className="desTextBox">
-          <p style={{ color: "#8f8f8f" }}>
-            ฟรีแลนซ์สาวหัวใจวายตายกะทันหัน
-            เพราะอินจัดกับนิยายจีนย้อนยุคที่อ่านไปได้ค่อนเรื่อง
-            ขณะนั่งเท้าคางรอยมทูตมารับวิญญาณอย่างเบื่อๆ
-            องค์เง็กเซียนฮ่องเต้ในชุดเสื้อฮาวายลายสับปะรดก็โผล่มาช่วยส่งเธอทะลุมิติไปเป็นตัวประกอบในนิยายจีนเรื่องนั้น
-            ...ไม่ใช่ตัวประกอบธรรมดา หากแต่ยังมีภารกิจอันยิ่งใหญ่
-            นั่นคือการปกป้องนางร้ายให้รอดจากคราวเคราะห์
-            แต่จะทำเช่นไรเมื่อเรื่องราวกลับวิปริตผิดเพี้ยนไปจากหนังสือ
-            ตัวละครทั้งหลายต่างพากันเล่นนอกบท
-            โดยเฉพาะบุรุษหนุ่มหล่อเหลาผู้หนึ่งถึงกับเอ่ยคำสารภาพรักกับนาง
-            จนคนไร้ประสบการณ์ความรักถึงสองชาติภพต้องสับสนว้าวุ่นใจ
-            ...ตัวประกอบหน้าตาบ้านๆ อย่างนางจะมีสิ่งใดไปต้องตาบุรุษผู้นั้นได้
-            หรือท่าโบกพัดของนางมันเย้ายวนจนทำให้เขาตกหลุมรัก?
-          </p>
+          <p style={{ color: "#8f8f8f" }}>{book.descriptions}</p>
         </div>
       </div>
       <div className="otherBox">
@@ -235,15 +234,9 @@ function DescriptionOfBook() {
           keyBoardControl
           draggable
         >
-          {/* {products.map((product) => {
+          {data.map((product) => {
             return <Product data={product} />;
-          })} */}
-          <p>Item1</p>
-          <p>Item2</p>
-          <p>Item3</p>
-          <p>Item4</p>
-          <p>Item5</p>
-          <p>Item6</p>
+          })}
         </CarouselMultiple>
       </div>
     </div>

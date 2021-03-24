@@ -6,6 +6,8 @@ import "react-multi-carousel/lib/styles.css";
 import { Box, Button } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
 
+import DescriptionOfBook from "../Description/Descriptionofbook";
+
 class Product extends Component {
   constructor(props) {
     super(props);
@@ -52,7 +54,7 @@ class Product extends Component {
                 style={{ textAlign: "center", marginBottom: "5px" }}
               >
                 <Button
-                  href={this.state.products.link}
+                  href={this.state.products.link + `/${this.state.products.id}`}
                   variant="outlined"
                   color="primary"
                   size="small"

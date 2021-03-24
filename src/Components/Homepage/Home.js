@@ -8,7 +8,11 @@ import { Link } from "react-router-dom";
 // import { Rating } from "@material-ui/lab";
 
 import book from "../../assets/book01.png";
+import gray from "../../assets/gray.png";
+import green from "../../assets/green.png";
+import yellow from "../../assets/yellow.jpg";
 import Product from "./Product";
+import Data from "../../data/data-dummy.json";
 
 const responsive = {
   superLargeDesktop: {
@@ -30,101 +34,22 @@ const responsive = {
 };
 
 function Home() {
-  const [products] = useState([
-    {
-      id: 1,
-      title: "ตัวประกอบสะท้านยุทธภพ",
-      price: "THB259.00",
-      saleprice: "THB129.00",
-      imagebook: book,
-      link: "/book01",
-      reviews: 1,
-      rating: 4,
-      discription: "",
-    },
-    {
-      id: 2,
-      title: "ตัวประกอบสะท้านยุทธภพ",
-      price: "THB259.00",
-      saleprice: "THB129.00",
-      imagebook: book,
-      link: "/book01",
-      reviews: 1,
-      rating: 4,
-      discription: "",
-    },
-    {
-      id: 3,
-      title: "ตัวประกอบสะท้านยุทธภพ",
-      price: "THB259.00",
-      saleprice: "THB129.00",
-      imagebook: book,
-      link: "/book01",
-      reviews: 1,
-      rating: 4,
-      discription: "",
-    },
-    {
-      id: 4,
-      title: "ตัวประกอบสะท้านยุทธภพ",
-      price: "THB259.00",
-      saleprice: "THB129.00",
-      imagebook: book,
-      link: "/book01",
-      reviews: 1,
-      rating: 4,
-      discription: "",
-    },
-    {
-      id: 5,
-      title: "ตัวประกอบสะท้านยุทธภพ",
-      price: "THB259.00",
-      saleprice: "THB129.00",
-      imagebook: book,
-      link: "/book01",
-      reviews: 1,
-      rating: 4,
-      discription: "",
-    },
-    {
-      id: 6,
-      title: "ตัวประกอบสะท้านยุทธภพ",
-      price: "THB259.00",
-      saleprice: "THB129.00",
-      imagebook: book,
-      link: "/book01",
-      reviews: 1,
-      rating: 4,
-      discription: "",
-    },
-  ]);
+  const [products] = useState(Data.BOOKS);
 
   return (
     <div>
       {/* Carousel Image */}
       <Carousel className="ImgItems">
         <Carousel.Item>
-          <img
-            className="Img"
-            src="https://source.unsplash.com/random?sig=$01"
-            alt="First slide"
-          />
+          <img className="Img" src={gray} alt="First slide" />
         </Carousel.Item>
 
         <Carousel.Item>
-          <img
-            className="Img"
-            src="https://source.unsplash.com/random?sig=$09"
-            alt="Second slide"
-          />
+          <img className="Img" src={green} alt="Second slide" />
         </Carousel.Item>
 
         <Carousel.Item>
-          <img
-            className="Img"
-            src="https://source.unsplash.com/random?sig=$40"
-            alt="Third slide"
-          />
+          <img className="Img" src={yellow} alt="Third slide" />
         </Carousel.Item>
       </Carousel>
 
