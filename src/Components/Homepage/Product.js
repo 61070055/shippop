@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import "./Home.css";
 import { Card } from "react-bootstrap";
 import "react-multi-carousel/lib/styles.css";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Box, Button } from "@material-ui/core";
 import { Rating } from "@material-ui/lab";
-
-import DescriptionOfBook from "../Description/Descriptionofbook";
 
 class Product extends Component {
   constructor(props) {
@@ -53,14 +51,14 @@ class Product extends Component {
                 className="buybutton"
                 style={{ textAlign: "center", marginBottom: "5px" }}
               >
-                <Button
-                  href={this.state.products.link + `/${this.state.products.id}`}
-                  variant="outlined"
-                  color="primary"
-                  size="small"
+                <Link
+                  className="SubHeader"
+                  to={this.state.products.link + `/${this.state.products.id}`}
                 >
-                  Add To Cart
-                </Button>
+                  <Button variant="outlined" color="primary" size="small">
+                    Add To Cart
+                  </Button>
+                </Link>
               </div>
             ) : (
               <></>

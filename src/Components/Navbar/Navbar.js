@@ -8,15 +8,17 @@ import { Badge, Paper, InputBase, Popper, Button } from "@material-ui/core";
 import CloseIcon from "@material-ui/icons/Close";
 import CreateOutlinedIcon from "@material-ui/icons/CreateOutlined";
 import { makeStyles } from "@material-ui/core/styles";
+import { useSelector } from "react-redux";
 
 import profile from "../../assets/profile.jpg";
 
-import book from "../../assets/book01.png";
-
 function Navbar() {
-  const [shoppingCart] = useState({ amount: 1 });
   const [isSearching, setisSearching] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
+  const products = useSelector((state) => {
+    return state;
+  });
+  console.log(products);
 
   const useStyles = makeStyles((theme) => ({
     root: {
@@ -97,7 +99,7 @@ function Navbar() {
               {isSearching ? <CloseIcon /> : <SearchIcon />}
             </button>
             <Badge
-              badgeContent={shoppingCart.amount}
+              badgeContent={products.length}
               color="primary"
               style={{ marginLeft: "1.5vw" }}
               onClick={handleClick}
@@ -131,89 +133,94 @@ function Navbar() {
                   ตระกร้าของฉัน
                 </h5>
                 <p style={{ fontSize: "15px", color: "#9e9e9e" }}>
-                  {shoppingCart.amount} สินค้าในตระกร้า
+                  {products.length} สินค้าในตระกร้า
                 </p>
-                <Button
-                  variant="outlined"
-                  color="primary"
-                  style={{
-                    borderRadius: "50px",
-                    borderWidth: "2px",
-                    paddingLeft: 50,
-                    paddingRight: 50,
-                    marginBottom: 10,
-                  }}
-                  href="/cart"
-                >
-                  ดูหรือแก้ไขสินค้าของฉัน
-                </Button>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    borderTop: "1.5px solid",
-                    borderBottom: "1.5px solid",
-                    borderColor: "#e0e0e0",
-                    paddingTop: 15,
-                    paddingBottom: 15,
-                  }}
-                >
-                  <p
+                <Link className="SubHeader" to="/cart">
+                  <Button
+                    variant="outlined"
+                    color="primary"
                     style={{
-                      flex: 1,
-                      textAlign: "right",
-                      paddingTop: "20px",
-                      paddingRight: "5px",
+                      borderRadius: "50px",
+                      borderWidth: "2px",
+                      paddingLeft: 50,
+                      paddingRight: 50,
+                      marginBottom: 10,
                     }}
                   >
-                    {shoppingCart.amount} x
-                  </p>
-                  <div
-                    style={{
-                      flex: 7,
-                      textAlign: "left",
-                      display: "flex",
-                      flexDirection: "row",
-                    }}
-                  >
-                    <img
-                      src={book}
-                      alt="img product"
+                    ดูหรือแก้ไขสินค้าของฉัน
+                  </Button>
+                </Link>
+                {products.map((items) => {
+                  return (
+                    <div
                       style={{
-                        height: "70px",
-                        width: "70px",
-                        marginRight: "10px",
+                        display: "flex",
+                        flexDirection: "row",
+                        borderTop: "1.5px solid",
+                        borderBottom: "1.5px solid",
+                        borderColor: "#e0e0e0",
+                        paddingTop: 15,
+                        paddingBottom: 15,
                       }}
-                    />
-                    <p>ตัวประกอบสะท้านยุทธภพ</p>
-                  </div>
-                  <div
-                    style={{
-                      flex: 2,
-                      display: "flex",
-                      flexDirection: "column",
-                      textAlign: "right",
-                    }}
-                  >
-                    <CloseIcon
-                      style={{
-                        height: "20px",
-                        border: "1px solid",
-                        borderRadius: "50%",
-                        marginBottom: "3px",
-                        cursor: "pointer",
-                      }}
-                    />
-                    <CreateOutlinedIcon
-                      style={{
-                        height: "20px",
-                        border: "1px solid",
-                        borderRadius: "50%",
-                        cursor: "pointer",
-                      }}
-                    />
-                  </div>
-                </div>
+                    >
+                      <p
+                        style={{
+                          flex: 1,
+                          textAlign: "right",
+                          paddingTop: "20px",
+                          paddingRight: "3px",
+                        }}
+                      >
+                        {items.amount} x
+                      </p>
+                      <div
+                        style={{
+                          flex: 7,
+                          textAlign: "left",
+                          display: "flex",
+                          flexDirection: "row",
+                        }}
+                      >
+                        <img
+                          src={items.imagebook}
+                          alt="img product"
+                          style={{
+                            height: "70px",
+                            width: "70px",
+                            marginRight: "10px",
+                          }}
+                        />
+                        <p>{items.title}</p>
+                      </div>
+                      <div
+                        style={{
+                          flex: 2,
+                          display: "flex",
+                          flexDirection: "column",
+                          textAlign: "right",
+                        }}
+                      >
+                        <CloseIcon
+                          style={{
+                            height: "20px",
+                            border: "1px solid",
+                            borderRadius: "50%",
+                            marginBottom: "3px",
+                            cursor: "pointer",
+                          }}
+                        />
+                        <CreateOutlinedIcon
+                          style={{
+                            height: "20px",
+                            border: "1px solid",
+                            borderRadius: "50%",
+                            cursor: "pointer",
+                          }}
+                        />
+                      </div>
+                    </div>
+                  );
+                })}
                 <div
                   style={{
                     display: "flex",
@@ -225,19 +232,20 @@ function Navbar() {
                     ยอดรวม : <b>THB129.00</b>
                   </p>
                 </div>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  style={{
-                    borderRadius: "50px",
-                    paddingLeft: 50,
-                    paddingRight: 50,
-                    marginBottom: 10,
-                  }}
-                  href="/checkout"
-                >
-                  ไปชำระเงิน
-                </Button>
+                <Link className="SubHeader" to="/checkout">
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    style={{
+                      borderRadius: "50px",
+                      paddingLeft: 50,
+                      paddingRight: 50,
+                      marginBottom: 10,
+                    }}
+                  >
+                    ไปชำระเงิน
+                  </Button>
+                </Link>
               </div>
             </Popper>
             <img src={profile} alt="Avatar" className="avatar" />

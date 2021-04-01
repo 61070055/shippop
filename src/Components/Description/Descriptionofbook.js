@@ -19,6 +19,8 @@ import google from "../../assets/google-plus.png";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import database from "../../data/data-dummy.json";
 
+import { connect, useDispatch } from "react-redux";
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -60,22 +62,27 @@ const responsive = {
 };
 
 function DescriptionOfBook() {
-  const [amount, setAmount] = useState({ p_amount: "" });
+  const dispatch = useDispatch();
+  const [amount, setAmount] = useState(1);
   const classes = useStyles();
-  const [data, setdata] = useState(database.BOOKS);
-  const [bookId, setBookId] = useState(
-    window.location.pathname.split("/").pop()
-  );
-  const [book, setBook] = useState(
+  const [data] = useState(database.BOOKS);
+  const [bookId] = useState(window.location.pathname.split("/").pop());
+  const [book] = useState(
     database.BOOKS.filter((x) => x.id === parseInt(bookId))[0]
   );
 
   const handleChange = (event) => {
     const select = event.target.value;
-    setAmount({ p_amount: select });
+    setAmount(select);
   };
 
-  // console.log(database);
+  const handleAddToCart = () => {
+    dispatch({
+      type: "ADDTO_BUSKET",
+      book: book,
+      amount: parseInt(amount),
+    });
+  };
 
   return (
     <div style={{ width: "100vw", paddingTop: "10.2vh" }}>
@@ -135,7 +142,7 @@ function DescriptionOfBook() {
               <FormControl className={classes.formControl}>
                 <Select
                   native
-                  value={amount.p_amount}
+                  value={amount}
                   onChange={handleChange}
                   inputProps={{
                     name: "Amount",
@@ -158,6 +165,9 @@ function DescriptionOfBook() {
                 variant="contained"
                 color="primary"
                 className={classes.margin}
+                onClick={() => {
+                  handleAddToCart();
+                }}
               >
                 Add
               </Button>
@@ -243,4 +253,4 @@ function DescriptionOfBook() {
   );
 }
 
-export default DescriptionOfBook;
+export default connect()(DescriptionOfBook);

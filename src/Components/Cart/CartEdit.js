@@ -1,18 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Cart.css";
-import book from "../../assets/book01.png";
-import { FormControl, Select, Button } from "@material-ui/core";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { Button } from "@material-ui/core";
+import { withStyles } from "@material-ui/core/styles";
 import CloseIcon from "@material-ui/icons/Close";
 import CreateOutlinedIcon from "@material-ui/icons/CreateOutlined";
 import { grey } from "@material-ui/core/colors";
-
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-}));
+import { useSelector } from "react-redux";
 
 const ColorButton = withStyles((theme) => ({
   root: {
@@ -25,14 +18,18 @@ const ColorButton = withStyles((theme) => ({
 }))(Button);
 
 function CartEdit() {
-  const [amount, setAmount] = useState({ amount: "" });
+  const products = useSelector((state) => {
+    return state;
+  });
 
-  const classes = useStyles();
+  const [test, setTest] = useState(0);
 
-  const handleChange = (event) => {
-    const select = event.target.value;
-    setAmount({ amount: select });
-  };
+  useEffect(() => {
+    products.map((item) => {
+      return setTest(test + parseFloat(item.saleprice.slice(3) * item.amount));
+    });
+  }, [products, test]);
+
   return (
     <div style={{ width: "100vw", paddingTop: "10.2vh" }}>
       <div className="cartBox">
@@ -48,74 +45,55 @@ function CartEdit() {
             <p className="text__des">จำนวน</p>
             <p className="text__des">ยอดรวม</p>
           </div>
-          <div className="itemsBox">
-            <div className="productBox">
-              <img
-                src={book}
-                alt="img of Product"
-                style={{ height: "80%", paddingRight: "5px" }}
-              />
-              <p
-                style={{
-                  fontWeight: "bold",
-                  paddingTop: "0.2vw",
-                  paddingLeft: "0.2vw",
-                  fontSize: "13px",
-                }}
-              >
-                ตัวประกอบสะท้านยุทธภพ
-              </p>
-            </div>
-            <div className="priceBox">
-              <p>THB129.00</p>
-            </div>
-            <div className="amountBox">
-              <FormControl className={classes.formControl}>
-                <Select
-                  native
-                  value={amount.p_amount}
-                  onChange={handleChange}
-                  inputProps={{
-                    name: "Amount",
-                    id: "Amout-of-products",
-                  }}
-                >
-                  <option value={1}>1</option>
-                  <option value={2}>2</option>
-                  <option value={3}>3</option>
-                  <option value={4}>4</option>
-                  <option value={5}>5</option>
-                  <option value={6}>6</option>
-                  <option value={7}>7</option>
-                  <option value={8}>8</option>
-                  <option value={9}>9</option>
-                  <option value={10}>10</option>
-                </Select>
-              </FormControl>
-            </div>
-            <div className="summary__priceBox">
-              <p>THB129.0.0</p>
-            </div>
-            <div className="menuBox">
-              <CloseIcon
-                style={{
-                  height: "20px",
-                  border: "1px solid",
-                  borderRadius: "50%",
-                  marginBottom: "3px",
-                  cursor: "pointer",
-                }}
-              />
-              <CreateOutlinedIcon
-                style={{
-                  height: "20px",
-                  border: "1px solid",
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                }}
-              />
-            </div>
-          </div>
+          {products.map((item) => {
+            return (
+              <div className="itemsBox">
+                <div className="productBox">
+                  <img
+                    src={item.imagebook}
+                    alt="img of Product"
+                    style={{ height: "80%", paddingRight: "5px" }}
+                  />
+                  <p
+                    style={{
+                      fontWeight: "bold",
+                      paddingTop: "0.2vw",
+                      paddingLeft: "0.2vw",
+                      fontSize: "13px",
+                    }}
+                  >
+                    {item.title}
+                  </p>
+                </div>
+                <div className="priceBox">
+                  <p>{item.saleprice}</p>
+                </div>
+                <div className="amountBox">{item.amount}</div>
+                <div className="summary__priceBox">
+                  <p>THB{parseFloat(item.saleprice.slice(3) * item.amount)}</p>
+                </div>
+                <div className="menuBox">
+                  <CloseIcon
+                    style={{
+                      height: "20px",
+                      border: "1px solid",
+                      borderRadius: "50%",
+                      marginBottom: "3px",
+                      cursor: "pointer",
+                    }}
+                  />
+                  <CreateOutlinedIcon
+                    style={{
+                      height: "20px",
+                      border: "1px solid",
+                      borderRadius: "50%",
+                      cursor: "pointer",
+                    }}
+                  />
+                </div>
+              </div>
+            );
+          })}
           <div className="buttonBox">
             <Button
               variant="outlined"
@@ -155,7 +133,7 @@ function CartEdit() {
                 <p>ค่าส่ง</p>
               </div>
               <div>
-                <p>THB129.00</p>
+                <p>THB{test}</p>
                 <p>THB0.00</p>
               </div>
             </div>

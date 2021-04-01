@@ -4,10 +4,7 @@ import { Carousel } from "react-bootstrap";
 import CarouselMultiple from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
-// import { Box, Button } from "@material-ui/core";
-// import { Rating } from "@material-ui/lab";
 
-import book from "../../assets/book01.png";
 import gray from "../../assets/gray.png";
 import green from "../../assets/green.png";
 import yellow from "../../assets/yellow.jpg";
